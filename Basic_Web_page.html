@@ -1,0 +1,134 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basics of Web Development</title>
+
+    <!-- CSS Styling -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+
+        nav {
+            background-color: #555;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            color: yellow;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+        }
+
+        img {
+            width: 200px;
+            display: block;
+            margin: 10px 0;
+        }
+
+        button {
+            padding: 10px 15px;
+            background-color: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Basics of Web Development</h1>
+    <p>HTML | CSS | JavaScript</p>
+</header>
+
+<nav>
+    <a href="#about">About</a>
+    <a href="#content">Content</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<div class="container">
+
+    <!-- HTML CONTENT -->
+    <section id="about">
+        <h2>About This Page</h2>
+        <p>
+            This webpage demonstrates basic web development using HTML for structure,
+            CSS for styling, and JavaScript for interactivity.
+        </p>
+    </section>
+
+    <section id="content">
+        <h2>Sample Content</h2>
+        <p>This is a paragraph showing how text appears on a webpage.</p>
+
+        <!-- Image -->
+        <img src="https://via.placeholder.com/200" alt="Sample Image">
+
+        <!-- Link -->
+        <p>Visit 
+            <a href="https://www.google.com" target="_blank">Google</a>
+        </p>
+
+        <!-- JavaScript Button -->
+        <button onclick="showAlert()">Click Me</button>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Email: example@email.com</p>
+    </section>
+
+</div>
+
+<footer>
+    <p>© 2026 Web Development Task</p>
+</footer>
+
+<!-- JavaScript -->
+<script>
+    function showAlert() {
+        alert("Hello! This is a JavaScript alert message.");
+    }
+</script>
+
+</body>
+</html>
+```
