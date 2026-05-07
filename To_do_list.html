@@ -1,0 +1,216 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intermediate Web Development Project</title>
+
+    <style>
+
+        /* RESET */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+        }
+
+        /* HEADER */
+        header {
+            background: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* FLEXBOX NAVIGATION */
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            background: #555;
+            padding: 15px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: yellow;
+        }
+
+        /* GRID LAYOUT */
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        /* CARD DESIGN */
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        /* FORM */
+        form input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        button {
+            padding: 10px 15px;
+            border: none;
+            background: #333;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #555;
+        }
+
+        /* TODO LIST */
+        ul {
+            list-style: none;
+            margin-top: 10px;
+        }
+
+        ul li {
+            background: #eee;
+            margin: 5px 0;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .delete-btn {
+            background: red;
+            padding: 5px 10px;
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>To-Do List</h1>
+</header>
+
+
+<!-- GRID CONTAINER -->
+<div class="container">
+
+    <!-- CONTACT FORM -->
+    <div class="card">
+        <h2>Contact Form</h2>
+
+        <form onsubmit="validateForm(event)">
+            <input type="text" id="name" placeholder="Enter Name">
+            <input type="email" id="email" placeholder="Enter Email">
+
+            <button type="submit">Submit</button>
+        </form>
+
+        <p id="message"></p>
+    </div>
+
+    <!-- TODO LIST -->
+    <div class="card">
+        <h2>Dynamic To-Do List</h2>
+
+        <input type="text" id="taskInput" placeholder="Enter Task">
+
+        <button onclick="addTask()">Add Task</button>
+
+        <ul id="taskList"></ul>
+    </div>
+
+</div>
+
+<script>
+
+    // FORM VALIDATION
+    function validateForm(event) {
+
+        event.preventDefault();
+
+        let name = document.getElementById("name").value;
+        let email = document.getElementById("email").value;
+        let message = document.getElementById("message");
+
+        if(name === "" || email === "") {
+            message.innerHTML = "All fields are required!";
+            message.style.color = "red";
+            return;
+        }
+
+        if(!email.includes("@")) {
+            message.innerHTML = "Enter a valid email!";
+            message.style.color = "red";
+            return;
+        }
+
+        message.innerHTML = "Form submitted successfully!";
+        message.style.color = "green";
+    }
+
+    // DYNAMIC TODO LIST
+    function addTask() {
+
+        let taskInput = document.getElementById("taskInput");
+        let taskText = taskInput.value;
+
+        if(taskText === "") {
+            alert("Please enter a task");
+            return;
+        }
+
+        let li = document.createElement("li");
+
+        li.innerHTML = `
+            ${taskText}
+            <button class="delete-btn" onclick="removeTask(this)">
+                Delete
+            </button>
+        `;
+
+        document.getElementById("taskList").appendChild(li);
+
+        taskInput.value = "";
+    }
+
+    // REMOVE TASK
+    function removeTask(button) {
+        button.parentElement.remove();
+    }
+
+</script>
+
+</body>
+</html>
